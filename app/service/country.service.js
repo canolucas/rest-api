@@ -18,7 +18,7 @@ var CountryService = (function () {
         this.http = http;
     }
     CountryService.prototype.getCountriesByRegion = function (region) {
-        return this.http.get("localhost:8080/api/" + region).map(function (res) { return res.json(); });
+        return this.http.get("http://localhost:8080/api/" + region).map(function (res) { return res.json(); });
     };
     CountryService = __decorate([
         core_1.Injectable(), 
