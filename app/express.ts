@@ -5,8 +5,14 @@ var app = express();
 
 app.get('/api/:continent', function (req, res) {
 	var continent = req.params.continent;
-	var info = "asd";
-	res.send('info');
+	var fs = require('fs');
+
+	require.extensions['.txt'] = function (module, filename) {
+	    module.exports = fs.readFileSync(filename, 'utf8');
+	};
+
+	var countries = require("./countries/" + continent + ".txt");
+	res.json(countries);
 });
 
 var server = app.listen(8080, function () {
