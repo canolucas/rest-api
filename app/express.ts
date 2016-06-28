@@ -18,7 +18,9 @@ app.get('/api/:continent', function (req, res) {
 	};
 
 	var countries = require("./countries/" + continent + ".txt");
-	res.json(countries);
+
+	res.write(countries);
+	res.end();
 });
 
 var server = app.listen(8080, function () {

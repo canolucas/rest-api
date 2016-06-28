@@ -13,7 +13,8 @@ app.get('/api/:continent', function (req, res) {
         module.exports = fs.readFileSync(filename, 'utf8');
     };
     var countries = require("./countries/" + continent + ".txt");
-    res.json(countries);
+    res.write(countries);
+    res.end();
 });
 var server = app.listen(8080, function () {
     var host = server.address().address;
