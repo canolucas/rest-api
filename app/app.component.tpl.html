@@ -1,0 +1,9 @@
+<form (ngSubmit)="getCountriesByRegion()">
+    <label>Region:</label>
+    <input type="text" [(ngModel)]="region" required>
+    <button type="submit">Search</button>
+</form>
+<hr>
+<p style="color:red">{{error}}</p>
+<h1>Countries in {{region}}</h1>
+<div *ngFor="#country of countries">{{country.name}}</div>
